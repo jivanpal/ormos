@@ -68,10 +68,7 @@ CREATE VIEW card_printing_full AS
         card_oracle.text AS oracle_text
     FROM
         card_printing
-        JOIN card_oracle ON
-            card_oracle.id = card_printing.oracle_id
-        JOIN expansion ON
-            expansion.code = card_printing.expansion_code
+        JOIN card_oracle ON card_oracle.id = card_printing.oracle_id
 ;
 
 CREATE TABLE card (
@@ -94,12 +91,8 @@ CREATE VIEW card_full AS
         card_oracle.text AS oracle_text
     FROM
         card
-        JOIN card_printing ON
-            card_printing.id = card.printing_id
-        JOIN card_oracle ON
-            card_oracle.id = card_printing.oracle_id
-        JOIN expansion ON
-            expansion.code = card_printing.expansion_code
+        JOIN card_printing ON card_printing.id = card.printing_id
+        JOIN card_oracle ON card_oracle.id = card_printing.oracle_id
 ;
 
 CREATE TABLE format (
